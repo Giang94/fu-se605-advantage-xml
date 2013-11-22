@@ -1,0 +1,182 @@
+﻿<?xml version="1.0"?>
+
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:element name="database">
+        <xs:complexType>
+            <xs:sequence minOccurs="1" maxOccurs="1">
+                <xs:element name="categories">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="category" type="category" minOccurs="0" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="suppliers">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="supplier" type="supplier" minOccurs="0" maxOccurs="unbounded" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="products">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="product" type="product" minOccurs="0" maxOccurs="unbounded" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="name" type="xs:string" fixed="northwind" />
+        </xs:complexType>
+    </xs:element>
+                
+    <xs:complexType name="category">
+        <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:element name="CategoryID" type="xs:integer" nillable="false"/>
+            <xs:element name="CategoryName" nillable="false">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="15"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+            <xs:element name="Description" type="xs:string"  nillable="true"/>
+            <xs:element name="Picture" type="picture"  nillable="true"/>
+            <xs:element name="File" type="xs:string"  nillable="true"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="supplier">
+        <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:element name="SupplierID" type="xs:integer"  nillable="false"/>
+            <xs:element name="CompanyName"  nillable="false">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="40"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+            <xs:element name="ContactName"  nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="30"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+            <xs:element name="ContactTitle"  nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="30"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+            <xs:element name="Address"  nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+            <xs:element name="City"  nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="15"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+            <xs:element name="Region"  nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="15"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+            <xs:element name="PostalCode"  nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+            <xs:element name="Country"  nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="15"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+            <xs:element name="Phone"  nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="24"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+            <xs:element name="Fax"  nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="24"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+            <xs:element name="HomePage" type="xs:string"  nillable="true"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="product">
+        <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:element name="ProductID" type="xs:integer" nillable="false"/>
+            <xs:element name="ProductName" nillable="false">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="40"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+            <xs:element name="SupplierID" type="xs:integer" nillable="true"/>
+            <xs:element name="CategoryID" type="xs:integer" nillable="true"/>
+            <xs:element name="QuantityPerUnit" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+            <xs:element name="UnitPrice" nillable="true" default="0.00">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="12" />
+						<xs:fractionDigits value="2" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+            <xs:element name="UnitsInStock" type="smallint" nillable="true" default="0"/>
+            <xs:element name="UnitsOnOrder" type="smallint" nillable="true" default="0"/>
+            <xs:element name="ReorderLevel" type="smallint" nillable="true" default="0"/>
+            <xs:element name="Discontinued" type="discontinued" nillable="false" default="0"/>
+        </xs:sequence>
+    </xs:complexType>
+	
+	
+	<xs:simpleType name='smallint'>
+		<xs:restriction base='xs:integer'>
+			<xs:minInclusive value='-32768'/>
+			<xs:maxInclusive value='32767'/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name='discontinued'>
+		<xs:restriction base='xs:integer'>
+			<xs:enumeration value='0'/>
+			<xs:enumeration value='1'/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="picture">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-1]*"/>
+			<xs:minLength value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+</xs:schema>
