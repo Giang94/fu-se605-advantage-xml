@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>Add Category</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>		
+		<script type="text/javascript" src="validate.js"></script>		
+    </head>
+    <body>
+    	<div>
+    		<h2>Database Northwind - Add category</h2>
+    	</div>
+    	<hr />
+        <div>  
+			<form action="../AddCategory" method="get">
+        	<table>
+				<!-- tr id="CategoryID_tr">
+					<td align="right">CategoryID : </td>
+					<td><input type="text" id="categoryID" /></td>
+					<td><div id="categoryID_err"></div></td>
+				</tr-->
+				
+				<tr id="CategoryName_tr">
+					<td align="right">Category Name : </td>
+					<td><input type="text" id="categoryName" name="cat" onblur="DisplayErr(isValidString, 'categoryName', 'categoryName_err', false, 15);" /></td>
+					<td><div id="categoryName_err"></div></td>
+				</tr>
+				<tr id="Description_tr">
+					<td align="right">Description : </td>
+					<td><input type="text" id="description" name="des" /></td>
+					<td><div id="description_err"></div></td>
+				</tr>
+				<tr id="file_tr">
+					<td align="right">File : </td>
+					<td><input type="text" id="file" name="file" /></td>
+					<td><div id="file_err"></div></td>
+				</tr>
+				<tr id="Image_tr">
+					<td align="right">Image : </td>
+					<td><input type="file" id ="image" name="image"/></td>
+					<td><div id="image_err"></div></td>
+				</tr>
+				<tr id="Button_tr">
+					<td align="right"></td>
+					<td><input type="submit" id ="button"/></td>
+					<td><div id="image_err"></div></td>
+				</tr>		
+			</table> 
+</form>			
+        </div>
+    </body>
+</html>
